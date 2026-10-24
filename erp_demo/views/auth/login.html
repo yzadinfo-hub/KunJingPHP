@@ -1,0 +1,22 @@
+{extend 'layout'}
+{block title}登录 - 组梦ERP{/block}
+{block content}
+<h2>系统登录</h2>
+
+{if $error}
+<div class="err">{$error}</div>
+{/if}
+
+<form method="post" action="/login">
+  <div class="field">
+    <label>用户名</label>
+    <input type="text" name="username" value="admin" placeholder="admin">
+  </div>
+  <div class="field">
+    <label>密码</label>
+    <input type="password" name="password" value="123456" placeholder="123456">
+  </div>
+  <button class="btn" type="submit">登录</button>
+</form>
+<p class="muted">演示账号：admin / 123456（正式环境请改为数据库校验）</p>
+{/block}

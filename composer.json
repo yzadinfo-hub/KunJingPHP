@@ -1,0 +1,22 @@
+{
+    "name": "kunjing/kunjingphp",
+    "description": "KunJingPHP (堃景) - 自研 PHP 框架，能力对标 ThinkPHP 8.1，代码完全自主实现。",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["framework", "php", "kunjing", "堃景"],
+    "authors": [
+        {
+            "name": "KunJing Dev Team"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "KunJing\\Framework\\": "src/KunJing/Framework"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

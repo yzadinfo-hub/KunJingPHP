@@ -1,0 +1,11 @@
+<p>变量：{$name}</p>
+<p>转义：{$danger}</p>
+<p>原样：{$danger|raw}</p>
+<p>点号数组：{$user.name} / {$user.profile.age}</p>
+<p>点号对象：{$obj.title}</p>
+<dl>
+{foreach $map as $k => $v}
+    <dt>{$k}</dt><dd>{$v}</dd>
+{/foreach}
+</dl>
+<p>缺省：{$notexist}</p>

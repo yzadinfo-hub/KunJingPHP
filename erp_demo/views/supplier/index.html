@@ -1,0 +1,49 @@
+{extend 'layout'}
+{block title}供应商管理 - 组梦ERP{/block}
+{block content}
+<h2>供应商管理</h2>
+
+{if $msg}
+<div class="alert">{$msg}</div>
+{/if}
+
+<div class="toolbar">
+  <form method="get" action="/supplier" style="display:flex;gap:8px;">
+    <input type="text" name="keyword" value="{$keyword}" placeholder="按名称搜索">
+    <button class="btn" type="submit">搜索</button>
+  </form>
+  <a class="btn" href="/supplier/create">+ 新增供应商</a>
+  <span class="muted">共 {$total} 条 / 缓存总数 {$cachedTotal}</span>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>供应商名称</th><th>联系人</th><th>联系电话</th>
+      <th>商品数</th><th>状态</th><th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    {foreach $list as $s}
+    <tr>
+      <td>{$s.id}</td>
+      <td>{$s.name}</td>
+      <td>{$s.contact}</td>
+      <td>{$s.phone}</td>
+      <td>{$s.goodsCount}</td>
+      <td>
+        {if $s.status == 1}<span class="tag on">启用</span>{else}<span class="tag off">停用</span>{/if}
+      </td>
+      <td>
+        <a class="btn ghost" href="/supplier/edit/{$s.id}">编辑</a>
+        <a class="btn danger" href="/supplier/delete/{$s.id}" onclick="return confirm('确定删除？');">删除</a>
+      </td>
+    </tr>
+    {/foreach}
+  </tbody>
+</table>
+
+{if $list == null}
+  <p class="muted">暂无供应商数据。</p>
+{/if}
+{/block}

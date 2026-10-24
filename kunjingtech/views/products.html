@@ -1,0 +1,45 @@
+{extend 'layout'}
+{block title}产品源码 · 永州堃景科技{/block}
+
+{block content}
+<section class="hero" style="padding:72px 0 64px">
+  <span class="glow g1"></span>
+  <span class="glow g2"></span>
+  <div class="wrap">
+    <span class="badge">产品源码矩阵</span>
+    <h1 style="font-size:42px">15 大品类 <span class="grad-text">源码开箱即战</span></h1>
+    <p class="lead">成熟源码 + 二次开发 + 部署上线 + 售后支持，帮您把上线周期压缩到极致。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">源码品类</span>
+      <h2>总有一款契合您的业务</h2>
+      <p>覆盖企业官网、商城、金融、直播、淘客、小说、影视等热门赛道。</p>
+    </div>
+    <div class="grid g3">
+      {foreach $products as $p}
+      <div class="card">
+        <div class="ic">{$p.ic}</div>
+        <h3>{$p.title}</h3>
+        <p>{$p.desc}</p>
+        <div style="margin-top:14px"><span class="tag">源码交付</span><span class="tag">二开支持</span><span class="tag">部署上线</span></div>
+      </div>
+      {/foreach}
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:26px;font-size:14px">更多定制品类与最新源码清单，欢迎联系客服获取目录。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>想看演示或拿源码目录？</h2>
+      <p>我们可提供在线演示与源码说明文档，方便您快速评估。</p>
+      <a class="btn" href="/contact">索取演示</a>
+    </div>
+  </div>
+</section>
+{/block}

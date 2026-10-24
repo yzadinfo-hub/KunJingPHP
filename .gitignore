@@ -1,0 +1,29 @@
+# ===== 依赖与构建产物 =====
+/vendor/
+composer.lock
+node_modules/
+
+# ===== 运行时产物（保留目录结构，忽略内容）=====
+**/storage/**
+!**/storage/
+!**/storage/**/.gitkeep
+
+# ===== 日志 / 调试 / 临时文件 =====
+*.log
+server*.log
+server_stable.*
+*.vbs
+_diag.php
+_*.txt
+_pid.txt
+netstat*.txt
+*.err
+
+# ===== 备份与测试产物 =====
+erp_demo/backups/
+tests/debug.php
+tests/*_result.txt
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db

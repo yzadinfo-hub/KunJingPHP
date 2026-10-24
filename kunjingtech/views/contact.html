@@ -1,0 +1,87 @@
+{extend 'layout'}
+{block title}联系我们 · 永州堃景科技{/block}
+
+{block content}
+<section class="hero" style="padding:68px 0 58px">
+  <span class="glow g1"></span>
+  <span class="glow g2"></span>
+  <div class="wrap">
+    <span class="badge">联系我们</span>
+    <h1 style="font-size:40px">聊聊您的<span class="grad-text">项目与需求</span></h1>
+    <p class="lead">填写下方表单，或直接通过电话 / 微信联系我们，工作日内快速响应。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- 联系方式 -->
+      <div class="info">
+        <div class="row">
+          <div class="ic">📍</div>
+          <div><b>公司地址</b><span>{$info.address}</span></div>
+        </div>
+        <div class="row">
+          <div class="ic">📞</div>
+          <div><b>联系电话</b><span>{$info.phone}</span></div>
+        </div>
+        <div class="row">
+          <div class="ic">📱</div>
+          <div><b>手机 / 微信</b><span>{$info.mobile}　微信：{$info.wechat}</span></div>
+        </div>
+        <div class="row">
+          <div class="ic">✉️</div>
+          <div><b>电子邮箱</b><span>{$info.email}</span></div>
+        </div>
+        <div class="row">
+          <div class="ic">🌐</div>
+          <div><b>官方网站</b><span>{$info.domain}　（<a href="https://kunjingkeji.cn" target="_blank" rel="noopener" style="color:var(--primary)">https://kunjingkeji.cn</a>）</span></div>
+        </div>
+      </div>
+
+      <!-- 留言表单 -->
+      <form class="box" method="post" action="/contact">
+        {if $sent}
+        <div class="alert-ok">✅ 提交成功！我们会尽快与您联系，请保持电话畅通。</div>
+        {/if}
+        {if $errors}
+        <div class="alert-err">⚠️ 表单填写有误，请检查以下项后重新提交。</div>
+        {/if}
+
+        <div class="field">
+          <label>称呼 *</label>
+          <input type="text" name="name" value="{$old.name}" placeholder="如：王先生 / 某公司">
+          {if $errors.name}<div class="err-tip">{$errors.name}</div>{/if}
+        </div>
+        <div class="field">
+          <label>联系电话 *</label>
+          <input type="text" name="phone" value="{$old.phone}" placeholder="手机或固定电话">
+          {if $errors.phone}<div class="err-tip">{$errors.phone}</div>{/if}
+        </div>
+        <div class="field">
+          <label>邮箱 *</label>
+          <input type="text" name="email" value="{$old.email}" placeholder="name@example.com">
+          {if $errors.email}<div class="err-tip">{$errors.email}</div>{/if}
+        </div>
+        <div class="field">
+          <label>需求类型 *</label>
+          <select name="type">
+            <option value="">请选择</option>
+            {foreach $types as $t}
+            <option value="{$t}" {if $old.type == $t}selected{/if}>{$t}</option>
+            {/foreach}
+          </select>
+          {if $errors.type}<div class="err-tip">{$errors.type}</div>{/if}
+        </div>
+        <div class="field">
+          <label>需求描述 *</label>
+          <textarea name="content" placeholder="简单描述您的项目、预算与期望上线时间">{$old.content}</textarea>
+          {if $errors.content}<div class="err-tip">{$errors.content}</div>{/if}
+        </div>
+        <button class="btn" type="submit" style="width:100%;border:none">提交留言</button>
+        <p style="color:var(--muted);font-size:12.5px;margin:12px 0 0">提交即表示同意我们就此次咨询与您联系。</p>
+      </form>
+    </div>
+  </div>
+</section>
+{/block}

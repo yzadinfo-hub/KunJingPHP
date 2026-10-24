@@ -1,0 +1,76 @@
+{extend 'layout'}
+{block title}关于我们 · 永州堃景科技有限公司{/block}
+
+{block content}
+<section class="hero" style="padding:78px 0 70px">
+  <span class="glow g1"></span>
+  <span class="glow g2"></span>
+  <div class="wrap">
+    <span class="badge">关于堃景科技</span>
+    <h1 style="font-size:42px">一支扎根永州的<span class="grad-text">全平台研发团队</span></h1>
+    <p class="lead">永州堃景科技有限公司（简称「堃景科技」）专注于软件开发与电商客服外包，以 100% 自研框架 KunJingPHP 为底座，为企业提供安全可控、性价比突出的数字化服务。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="about">
+      <h3>公司简介</h3>
+      <p>堃景科技成立于移动互联网高速发展期，团队核心成员拥有多年 WEB 与移动端研发经验。我们坚持「自研可控」的技术路线，打造了自有 PHP 框架 KunJingPHP，规避外部授权与合规风险，也让交付更透明、可审计。</p>
+      <p>主营业务覆盖：电商客服外包、WEB 网站开发（PHP）、H5 网站开发、PC 客户端应用开发、安卓 / iOS / macOS 应用开发、鸿蒙应用开发、小程序开发；并提供企业官网、商城系统、金融理财、直播、淘客、培训教育、小说、图片、区块、运营引流、H5、支付充值、素材模板、行业整站、影视视频等源码产品。</p>
+      <div class="pillars">
+        <div class="pillar"><b>使命</b><p style="margin:6px 0 0;color:#475569">用代码为企业创造增长，让数字化能力触手可及。</p></div>
+        <div class="pillar"><b>愿景</b><p style="margin:6px 0 0;color:#475569">成为湘南地区领先的软件定制与数字化服务伙伴。</p></div>
+        <div class="pillar"><b>价值观</b><p style="margin:6px 0 0;color:#475569">务实交付、源码透明、长期陪伴、客户第一。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">实力数据</span>
+      <h2>用结果说话</h2>
+    </div>
+    <div class="stats" style="max-width:880px;margin:0 auto">
+      {foreach $stats as $st}
+      <div class="stat">
+        <div class="num">{$st.num}</div>
+        <div class="lab">{$st.lab}</div>
+      </div>
+      {/foreach}
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="adv">
+      <div class="sec-head">
+        <span class="kicker">我们的优势</span>
+        <h2>为什么企业选择我们</h2>
+      </div>
+      <div class="grid g3">
+        {foreach $advantages as $a}
+        <div class="card">
+          <div class="ic">{$a.ic}</div>
+          <h3>{$a.title}</h3>
+          <p>{$a.desc}</p>
+        </div>
+        {/foreach}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>想更了解我们？</h2>
+      <p>查看完整业务与源码品类，或直接联系我们聊聊您的项目。</p>
+      <a class="btn" href="/contact">联系我们</a>
+    </div>
+  </div>
+</section>
+{/block}

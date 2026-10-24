@@ -1,0 +1,136 @@
+{extend 'layout'}
+{block title}永州堃景科技有限公司 · 用代码为企业创造增长{/block}
+
+{block content}
+<!-- Hero -->
+<section class="hero">
+  <span class="glow g1"></span>
+  <span class="glow g2"></span>
+  <div class="wrap">
+    <span class="badge">🚀 永州堃景科技 · 全平台软件定制与客服外包</span>
+    <h1>用代码，为<span class="grad-text">企业创造增长</span></h1>
+    <p class="lead">我们主营电商代运营（国内 + 跨境全平台）与电商客服外包，并以自研框架 KunJingPHP 为底座，提供 WEB / PHP / H5 / 小程序 / 安卓 / iOS / macOS / 鸿蒙全平台开发，为企业交付官网、商城到多端应用的一站式增长。</p>
+    <div class="actions">
+      <a class="btn" href="/services">查看主营业务</a>
+      <a class="btn ghost" href="/contact">立即咨询</a>
+    </div>
+
+    <div class="stats">
+      {foreach $stats as $st}
+      <div class="stat">
+        <div class="num">{$st.num}</div>
+        <div class="lab">{$st.lab}</div>
+      </div>
+      {/foreach}
+    </div>
+  </div>
+</section>
+
+<!-- 旗舰业务：电商代运营 -->
+<section class="agency">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">旗舰业务 · 电商代运营</span>
+      <h2>国内 + 跨境，全平台店铺代运营</h2>
+      <p>从开店装修、活动策划、推广投放到直播带货、客服接待、数据复盘，一站式陪跑店铺增长。</p>
+    </div>
+
+    <div class="chips-wrap">
+      <div class="chip-label">🇨🇳 国内主流平台</div>
+      <div class="chips">
+        {foreach $agency.domestic as $p}<span class="chip">{$p}</span>{/foreach}
+      </div>
+    </div>
+
+    <div class="chips-wrap">
+      <div class="chip-label">🌏 跨境出海平台</div>
+      <div class="chips">
+        {foreach $agency.cross as $p}<span class="chip cross">{$p}</span>{/foreach}
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:30px">
+      <a class="btn solid" href="/services">了解电商代运营详情 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 核心业务预览 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">核心业务</span>
+      <h2>覆盖全平台的技术能力</h2>
+      <p>从网站到多端应用，从源码到客服外包，一套团队贯通交付。</p>
+    </div>
+    <div class="grid g3">
+      {foreach $services as $s}
+      <div class="card">
+        <div class="ic">{$s.ic}</div>
+        <h3>{$s.title}</h3>
+        <p>{$s.desc}</p>
+      </div>
+      {/foreach}
+    </div>
+    <div style="text-align:center;margin-top:34px">
+      <a class="btn solid" href="/services">了解更多业务 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 产品源码矩阵预览 -->
+<section style="background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">产品源码矩阵</span>
+      <h2>15 大品类源码，开箱即战</h2>
+      <p>企业官网、商城、金融、直播、淘客、小说、影视…… 成熟源码 + 二开 + 部署一步到位。</p>
+    </div>
+    <div class="grid g4">
+      {foreach $products as $p}
+      <div class="card">
+        <div class="ic">{$p.ic}</div>
+        <h3>{$p.title}</h3>
+        <p>{$p.desc}</p>
+      </div>
+      {/foreach}
+    </div>
+    <div style="text-align:center;margin-top:34px">
+      <a class="btn solid" href="/products">查看全部源码品类 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 为什么选择我们 -->
+<section>
+  <div class="wrap">
+    <div class="adv">
+      <div class="sec-head">
+        <span class="kicker">为什么选择堃景</span>
+        <h2>自研底座 · 全平台 · 全流程</h2>
+        <p>我们用工程化能力，把「交付质量」和「可控成本」同时做到。</p>
+      </div>
+      <div class="grid g3">
+        {foreach $advantages as $a}
+        <div class="card">
+          <div class="ic">{$a.ic}</div>
+          <h3>{$a.title}</h3>
+          <p>{$a.desc}</p>
+        </div>
+        {/foreach}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>有项目想法？我们帮您落地</h2>
+      <p>无论是企业官网、商城系统，还是多端 App 与客服外包，欢迎随时沟通。</p>
+      <a class="btn" href="/contact">立即预约咨询</a>
+    </div>
+  </div>
+</section>
+{/block}

@@ -1,0 +1,44 @@
+{extend 'layout'}
+{block title}商品管理 - 组梦ERP{/block}
+{block content}
+<h2>商品管理</h2>
+
+{if $msg}
+<div class="alert">{$msg}</div>
+{/if}
+
+<form method="post" action="/goods/store">
+  <div class="toolbar">
+    <select name="supplier_id" style="padding:6px 8px;border:1px solid #d1d5db;border-radius:4px;">
+      <option value="">选择供应商</option>
+      {foreach $suppliers as $sp}
+        <option value="{$sp.id}">{$sp.name}</option>
+      {/foreach}
+    </select>
+    <input name="name" placeholder="商品名称">
+    <input name="sku" placeholder="SKU编码">
+    <input name="price" placeholder="价格">
+    <input name="stock" placeholder="库存">
+    <button class="btn" type="submit">+ 新增商品</button>
+  </div>
+</form>
+
+<table>
+  <thead>
+    <tr><th>ID</th><th>商品名称</th><th>SKU</th><th>价格</th><th>库存</th><th>所属供应商</th><th>操作</th></tr>
+  </thead>
+  <tbody>
+    {foreach $list as $g}
+    <tr>
+      <td>{$g.id}</td>
+      <td>{$g.name}</td>
+      <td>{$g.sku}</td>
+      <td>{$g.price}</td>
+      <td>{$g.stock}</td>
+      <td>{$g.supplier.name}</td>
+      <td><a class="btn danger" href="/goods/delete/{$g.id}">删除</a></td>
+    </tr>
+    {/foreach}
+  </tbody>
+</table>
+{/block}

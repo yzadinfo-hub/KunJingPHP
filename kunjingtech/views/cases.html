@@ -1,0 +1,40 @@
+{extend 'layout'}
+{block title}案例展示 · 永州堃景科技{/block}
+
+{block content}
+<section class="hero" style="padding:72px 0 64px">
+  <span class="glow g1"></span>
+  <span class="glow g2"></span>
+  <div class="wrap">
+    <span class="badge">案例展示</span>
+    <h1 style="font-size:42px">真实交付，<span class="grad-text">可见的增长</span></h1>
+    <p class="lead">以下为部分代表性项目（已脱敏），涵盖官网商城、行业整站、直播、影视与支付等场景。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="grid g3">
+      {foreach $cases as $c}
+      <div class="case {$c.cls}">
+        <span class="tag" style="background:rgba(255,255,255,.22);color:#fff">{$c.tag}</span>
+        <h3 style="margin-top:30px">{$c.title}</h3>
+        <p>{$c.desc}</p>
+        <div class="more">了解更多 →</div>
+      </div>
+      {/foreach}
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:26px;font-size:14px">案例为保护客户隐私已做脱敏处理，更多详情可联系我们。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>下一个案例，可以是您</h2>
+      <p>把您的业务目标告诉我们，用工程化能力把它变成现实。</p>
+      <a class="btn" href="/contact">开始合作</a>
+    </div>
+  </div>
+</section>
+{/block}

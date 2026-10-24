@@ -1,0 +1,6 @@
+{if $user.name}
+    <span class="muted">当前用户：{$user.name}</span>
+    <a href="/logout">退出</a>
+{else}
+    <a href="/login">登录</a>
+{/if}

@@ -1,0 +1,18 @@
+{extend 'layout'}
+{block title}首页{/block}
+{block content}
+<p>消息：{$message}</p>
+{if $score >= 90}
+    <span>优秀</span>
+{elseif $score >= 60}
+    <span>及格</span>
+{else}
+    <span>不及格</span>
+{/if}
+<ul>
+{foreach $list as $item}
+    <li>{$item}</li>
+{/foreach}
+</ul>
+{/block}
+{block footer}自定义页脚{/block}

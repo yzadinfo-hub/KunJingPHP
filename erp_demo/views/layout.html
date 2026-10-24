@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>{block title}组梦ERP{/block}</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin:0; font-family:"Microsoft YaHei",system-ui,sans-serif; background:#f3f5f9; color:#1f2937; }
+  .topbar { background:#1f3d78; color:#fff; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .topbar a { color:#cfe0ff; text-decoration:none; margin-left:16px; }
+  .brand { font-size:18px; font-weight:700; }
+  .wrap { max-width:1100px; margin:24px auto; background:#fff; border-radius:8px; padding:20px 24px; box-shadow:0 2px 12px rgba(31,61,120,.08); }
+  h2 { margin:0 0 16px; font-size:20px; border-left:4px solid #1f3d78; padding-left:10px; }
+  table { width:100%; border-collapse:collapse; margin-top:8px; }
+  th,td { border:1px solid #e6e9ef; padding:8px 10px; text-align:left; font-size:14px; }
+  th { background:#f7f9fc; }
+  tr:nth-child(even) td { background:#fafcff; }
+  .btn { display:inline-block; padding:6px 12px; border:none; border-radius:4px; background:#1f3d78; color:#fff; cursor:pointer; text-decoration:none; font-size:13px; }
+  .btn.ghost { background:#6b7280; }
+  .btn.danger { background:#c0392b; }
+  .alert { background:#e8f5e9; border:1px solid #b7e0bd; color:#256029; padding:8px 12px; border-radius:4px; margin-bottom:12px; }
+  .err { background:#fdecea; border:1px solid #f5c6c2; color:#a32b1c; padding:8px 12px; border-radius:4px; margin-bottom:12px; }
+  .field { margin-bottom:12px; }
+  .field label { display:block; font-size:13px; margin-bottom:4px; color:#374151; }
+  .field input, .field select { width:100%; padding:7px 9px; border:1px solid #d1d5db; border-radius:4px; font-size:14px; }
+  .field .msg { color:#c0392b; font-size:12px; margin-top:3px; }
+  .toolbar { display:flex; gap:8px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+  .toolbar input { padding:6px 8px; border:1px solid #d1d5db; border-radius:4px; }
+  .muted { color:#6b7280; font-size:13px; }
+  .tag { padding:2px 8px; border-radius:10px; font-size:12px; }
+  .tag.on { background:#e8f5e9; color:#256029; }
+  .tag.off { background:#f1f2f4; color:#6b7280; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">组梦ERP · 堃景框架(KunJingPHP)迁移样例</div>
+  <div>{include 'partials/nav'}</div>
+</div>
+<div class="wrap">
+{block content}这里是默认内容{/block}
+</div>
+</body>
+</html>
