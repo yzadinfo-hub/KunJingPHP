@@ -38,6 +38,18 @@ class Builder
     /** @var array<int,string> */
     protected array $eagerLoads = [];
 
+    /**
+     * 全局表前缀（由 App 在启动时按 db.prefix 配置注入）。
+     * 应用到 wrapTable()，让裸表名自动加上前缀（已含前缀的跳过）。
+     */
+    private static string $tablePrefix = '';
+
+    /** 由框架 App / 管理器在连接就绪时调用。 */
+    public static function setTablePrefix(string $prefix): void
+    {
+        self::$tablePrefix = $prefix;
+    }
+
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
@@ -599,6 +611,10 @@ class Builder
 
     protected function wrapTable(string $table): string
     {
+        // 应用全局表前缀：仅当表名尚未以该前缀开头时拼接（避免双重前缀）
+        if (self::$tablePrefix !== '' && strpos($table, self::$tablePrefix) !== 0) {
+            $table = self::$tablePrefix . $table;
+        }
         return $this->wrap($table);
     }
 

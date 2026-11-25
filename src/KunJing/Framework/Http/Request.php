@@ -35,10 +35,38 @@ class Request
     {
         $raw = null;
         $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+        $post = $_POST;
         if (in_array($method, ['POST', 'PUT', 'DELETE', 'PATCH'], true)) {
             $raw = file_get_contents('php://input') ?: null;
+            // JSON body 兼容：$_POST 在 application/json 下为空，需从 raw 解析合并
+            $json = self::tryParseJsonBody($raw, $method);
+            if (is_array($json)) {
+                $post = array_merge($json, $post);
+            }
         }
-        return new self($_GET, $_POST, $_SERVER, $raw, $_FILES ?? []);
+        return new self($_GET, $post, $_SERVER, $raw, $_FILES ?? []);
+    }
+
+    /**
+     * 尝试把 POST body 解析为 JSON 数组（仅 application/json 或 body 以 {/[ 开头）。
+     * @return array<string,mixed>|null
+     */
+    private static function tryParseJsonBody(?string $raw, string $method): ?array
+    {
+        if ($raw === null || $raw === '') {
+            return null;
+        }
+        $trimmed = ltrim($raw);
+        if ($trimmed === '') {
+            return null;
+        }
+        $ct = $_SERVER['CONTENT_TYPE'] ?? '';
+        $isJson = (stripos($ct, 'application/json') !== false) || $trimmed[0] === '{' || $trimmed[0] === '[';
+        if (!$isJson) {
+            return null;
+        }
+        $decoded = json_decode($raw, true);
+        return is_array($decoded) ? $decoded : null;
     }
 
     /** @param array<string,mixed> $files */

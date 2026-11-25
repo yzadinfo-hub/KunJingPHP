@@ -11,6 +11,7 @@ $scripts = [
     'phase3.php',
     'phase4.php',
     'phase5.php',
+    'phase7.php',
 ];
 
 $php = PHP_BINARY;
